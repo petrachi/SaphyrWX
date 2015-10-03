@@ -1,0 +1,29 @@
+[data-active-path]
+  #paths
+    .path
+      &:not(.active)
+        [data-path]
+          animation: slow-hide 1s forwards
+          pointer-events: none
+
+      &.active
+        height: 100%
+        transform: translateX(0)
+
+        [data-path]
+          width: 25%
+
+          &:hover
+            transform: none
+
+        svg
+          height: 36em
+
+          circle
+            r: .67
+
+          line
+            stroke-width: .125
+
+        [data-path-target]
+          visibility: visible

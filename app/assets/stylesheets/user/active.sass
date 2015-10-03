@@ -1,0 +1,37 @@
+[data-active-path]
+  #user-icon
+    height: 3.5em
+
+  #user-content
+    background-color: rgba(#111, .25)
+    transform: translateY(-100%) translateY(3.25em)
+
+[data-active-user]
+  #user-icon
+    transition: height .75s ease-out
+    align-items: flex-end
+
+    [data-user]
+      transition: opacity .5s
+
+  #user-content
+    transition: all .75s ease-out
+
+[data-active-user='on']
+  #user-close-icon
+    top: 0
+
+  #user-icon
+    height: 100%
+
+    svg
+      .outline
+        opacity: 1
+        r: 21
+
+      &:hover
+        opacity: .75
+
+  #user-content
+    transform: translateY(0)
+    background-color: rgba(#111, .75)

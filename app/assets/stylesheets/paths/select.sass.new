@@ -1,0 +1,74 @@
+[data-select-path]
+  #paths
+    .path
+      transition: transform 1s ease-out
+
+      &:not(.active)
+        height: calc(100% - 3.5em)
+
+        opacity: 0
+        transform: scale(.75) translateX(-9.375%)
+
+        [data-path]
+          pointer-events: none
+          transition: none
+          animation: none
+          width: 25%
+
+          &:hover
+            transform: none
+
+        svg
+          height: 36em
+          transition: none
+
+          circle
+            r: .67
+
+          line
+            stroke-width: .125
+
+      &.active
+        left: 0
+        z-index: 1
+
+      [data-path-target]
+        transition: left 1s ease-out
+
+
+[data-select-path=on]
+  #paths
+    .path
+      &:nth-child(1)
+        transform: scale(1) translateX(0) !important
+      &:nth-child(2)
+        transform: scale(1) translateX(25%) !important
+      &:nth-child(3)
+        transform: scale(1) translateX(50%) !important
+
+      h2
+        opacity: .5
+
+      &:not(.active)
+        opacity: 1
+        //transform: none
+        animation: soft-display 1s ease-out
+
+        [data-path]
+          pointer-events: auto
+
+      &.active
+        z-index: 0
+
+      &:nth-child(1)
+        [data-path-target]
+          left: 75%
+      &:nth-child(2)
+        [data-path-target]
+          left: 50%
+
+[data-select-path=off]
+  #paths
+    .path
+      &:not(.active)
+        animation: soft-hide 1s ease-out

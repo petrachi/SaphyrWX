@@ -1,0 +1,96 @@
+#paths
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  height: calc(100% - 3.25em)
+
+  .path
+    position: absolute
+    bottom: 0
+
+    &:nth-child(1)
+      transform: translateX(4.16667%)
+    &:nth-child(2)
+      transform: translateX(37.5%)
+    &:nth-child(3)
+      transform: translateX(70.83335%)
+
+    width: 100%
+    height: calc(100% - 28.5em)
+
+    transition: all 1s ease-out
+
+    display: flex
+    align-items: center
+
+    .path-content
+      width: 100%
+
+    [data-path]
+      text-align: center
+
+      width: 25%
+      transition: all 1s ease-out
+
+      h2
+        text-shadow: 0px 0px 1px #111
+        font-size: 1.625em
+        font-weight: 100
+
+        opacity: 0
+        margin:
+          top: .25em
+          bottom: 0
+
+        transition: opacity 1s .25s ease-out
+
+      svg
+        height: 24em
+        padding: 2em
+
+        transition: height 1s ease-out
+
+        circle
+          fill: #fbfbfb
+          r: 1
+          opacity: 0
+          animation: slow-display 1.5s ease-out forwards
+          transition: all 1s ease-out
+
+        line
+          stroke: #fbfbfb
+          stroke-width: .25
+
+          stroke-dasharray: 29
+          stroke-dashoffset: 29
+          animation: draw-line 1s .5s ease-out forwards
+
+          opacity: .2
+          transition: all 1s .25s ease-out
+
+      &:hover
+        cursor: pointer
+        transform: translateY(-4em)
+
+        h2
+          opacity: 1
+
+        svg
+          line
+            opacity: .8
+
+
+    [data-path-target]
+      display: none
+
+      visibility: hidden
+
+      position: absolute
+      bottom: 0
+      left: 25%
+
+      transition: left 1s ease-out
+
+      height: 100%
+      width: 75%

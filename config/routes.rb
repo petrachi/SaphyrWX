@@ -1,4 +1,27 @@
 Rails.application.routes.draw do
+
+  root 'paths#index', as: :paths
+
+  controller :paths do
+    get 'path/:id' => :show, as: :path
+  end
+
+  controller :sessions do
+    get "auth/:provider/callback" => :create
+    get "signout" => :destroy, as: :signout
+  end
+
+  controller :users do
+    get 'user/iframe' => :iframe, as: :user_iframe
+    get 'user' => :show, as: :user
+  end
+
+  controller :videos do
+    get 'wka' => :index
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

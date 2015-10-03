@@ -1,0 +1,6 @@
+- if @videos.present?
+  div class='videos'
+    == render partial: 'video', collection: @videos
+
+- else
+  p Rien n'est ici
