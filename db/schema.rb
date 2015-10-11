@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20150927164203) do
   enable_extension "plpgsql"
 
   create_table "paths", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "tag",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "yt_description"
+    t.string   "yt_id"
+    t.string   "yt_title"
+    t.string   "tag"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,12 +34,17 @@ ActiveRecord::Schema.define(version: 20150927164203) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title"
+    t.string   "yt_description"
+    t.string   "yt_duration"
+    t.string   "yt_embed_html"
+    t.string   "yt_id"
+    t.string   "yt_published_at"
+    t.string   "yt_thumbnail_url"
+    t.string   "yt_title"
     t.string   "brief"
-    t.string   "embed"
     t.integer  "path_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "videos", ["path_id"], name: "index_videos_on_path_id", using: :btree

@@ -1,0 +1,125 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sync
+  height: 100%
+  overflow: scroll
+
+  h1
+    text-align: center
+    font-weight: 100
+    font-size: 8em
+
+  #yt_login
+    display: block
+    position: absolute
+    top: 40%
+    right: 0
+    left: 0
+
+    margin: 0 auto
+    width: 16em
+
+    text-align: center
+    padding: 1em
+
+    @include unstyled-link()
+
+    color: #fbfbfb
+    background-color: dodgerblue
+
+  #back
+    display: block
+    position: absolute
+    top: .5em
+    left: .5em
+
+    font-weight: 100
+    opacity: .5
+    transition: opacity .5s
+
+    @include unstyled-link()
+
+    &:hover
+      opacity: 1
+
+  .playlist
+    position: relative
+
+    margin: 1em 25%
+    background-color: rgba(#111, .5)
+
+    h2
+      text-align: center
+      font-weight: 100
+      font-size: 4em
+
+      padding: .0625em
+
+    .playlist-actions
+      position: absolute
+      top: .2em
+      right: 0
+
+      padding: 2em
+      color: firebrick
+
+      .synced
+        color: limegreen
+        cursor: default
+
+      > *:not(.synced)
+        cursor: pointer
+
+
+    .playlist-visual-id
+      position: absolute
+      top: .2em
+      left: -6em
+
+      svg
+        height: 12em
+        padding: .25em
+
+        transition: height 1s ease-out
+
+        circle
+          fill: #fbfbfb
+          r: 1
+          opacity: 0
+          animation: slow-display 1.5s ease-out forwards
+          transition: all 1s ease-out
+
+        line
+          stroke: #fbfbfb
+          stroke-width: .25
+
+          stroke-dasharray: 29
+          stroke-dashoffset: 29
+          animation: draw-line 1s .5s ease-out forwards
+
+  .video
+    position: relative
+    padding: 1em
+
+    h4
+      font-weight: 100
+      margin: 0
+      padding-bottom: .25em
+      border-bottom: 1px dashed rgba(#fbfbfb, .25)
+
+    .video-actions
+      position: absolute
+      top: 1em
+      right: 1.5em
+
+      font-weight: 200
+      letter-spacing: .0625em
+
+      .synced
+        color: limegreen
+        cursor: default
+
+      > *:not(.synced)
+        cursor: pointer

@@ -1,0 +1,18 @@
+div class='playlist' data-playlist-target="#{playlist.id}"
+  h2 Playlist - #{playlist.title}
+
+  - if (path = Path.find_by yt_id: playlist.id)
+    div class='playlist-actions'
+      span class='synced' Synced √
+
+    div class='playlist-visual-id'
+      == render "paths/svg/#{path.tag.underscore}" rescue nil
+
+    div class='videos'
+      - playlist.playlist_items.each do |playlist_item|
+        == render partial: 'video', locals: {video: playlist_item.video, playlist: playlist}
+
+
+  - else
+    div class='playlist-actions'
+      span data-playlist="#{playlist.id}" Sync!

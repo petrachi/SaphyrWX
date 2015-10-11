@@ -1,0 +1,12 @@
+div id='sync'
+  h1 Sync
+
+  - if @account
+    div id='playlists'
+      - @account.playlists.each do |playlist|
+        == render partial: 'playlist', object: playlist
+
+  - else
+    == link_to "YT API Login", Yt::Account.new(scopes: ['youtube'], redirect_uri: 'http://localhost:3000/wxa/sync').authentication_url, id: 'yt_login'
+
+  = link_to "ActiveAdmin Videos", wxa_videos_path, id: 'back'

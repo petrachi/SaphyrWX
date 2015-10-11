@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Use ActiveAdmin to manage basic CRUD administration
+gem 'activeadmin', '~> 1.0.0.pre2'
 # Use Ominiauth
 gem 'omniauth', '~> 1.2.2'
 # Use Google to log in

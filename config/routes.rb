@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   root 'paths#index', as: :paths
 
   controller :paths do
@@ -16,8 +17,10 @@ Rails.application.routes.draw do
     get 'user' => :show, as: :user
   end
 
-  controller :videos do
-    get 'wka' => :index
+  controller :sync do
+    get 'wxa/sync' => :index, as: :sync
+    get 'wxa/sync_playlist/:id' => :sync_playlist, as: :sync_playlist
+    get 'wxa/sync_video/:id' => :sync_video, as: :sync_video
   end
 
 

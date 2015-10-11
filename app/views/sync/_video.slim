@@ -1,0 +1,10 @@
+div class='video' data-video-target="#{video.id}"
+  h4 = video.title
+
+  - if Video.find_by yt_id: video.id
+    div class='video-actions'
+      span class='synced' √
+
+  - else
+    div class='video-actions'
+      span data-video="#{video.id}" data-playlist="#{playlist.id}" Sync!
