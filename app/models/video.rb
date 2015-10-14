@@ -10,7 +10,7 @@ class Video < ActiveRecord::Base
       video.yt_embed_html = yt_video.embed_html
       video.yt_id = yt_video.id
       video.yt_published_at = yt_video.published_at
-      video.yt_thumbnail_url = yt_video.thumbnail_url
+      video.yt_thumbnail_url = yt_video.thumbnail_url :high
       video.yt_title = yt_video.title
 
       video.path = path
@@ -25,4 +25,6 @@ class Video < ActiveRecord::Base
   alias_attribute :title, :yt_title
 
   decorate_with VideoDecorator
+
+  scope :published, ->{ where published: true }
 end

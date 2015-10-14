@@ -1,6 +1,8 @@
-- if @videos.present?
-  div class='videos'
+div class='flex-align-markup'
+div class='videos'
+  - if @videos.present?
     == render partial: 'video', collection: @videos
+  - else
+    p Rien n'est ici
 
-- else
-  p Rien n'est ici
+div class='flex-align-markup'

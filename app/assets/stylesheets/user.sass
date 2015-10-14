@@ -5,20 +5,27 @@
 #user-icon
   position: absolute
   top: 0
-  right: 0
-  z-index: 2
+  right: .5em
+  bottom: 0
+
+  width: 2.5em
 
   overflow: hidden
-  height: 0
-
-  transition: height .25s 1.25s linear
+  transform: translateY(-100%)
+  transition: transform .5s 1s linear
 
   display: flex
-  align-items: flex-start
+  flex-direction: column
+  justify-content: space-between
 
-  svg
+  svg#logo-icon
+    position: absolute
+    right: 0
+    bottom: .25em
     height: 2.5em
-    margin: .5em
+
+    transform: translateY(3.25em)
+    transition: transform .5s 1s linear
 
     .background
       fill: #fbfbfb
@@ -30,35 +37,25 @@
       fill: transparent
       stroke: #fbfbfb
       stroke-width: 2
+      r: 21
       opacity: 0
 
       cursor: pointer
-      transition: all 1s ease-in
+      transition: opacity 1s ease-out
 
     &:hover
       .outline
         opacity: 1
-        r: 21
 
-        transition: all .5s ease-out
-
-
-#user-close-icon
-  position: absolute
-  top: -100%
-  right: 0
-  z-index: 2
-
-  transition: all .75s ease-out
-
-  &:hover
-    opacity: .75
-
-  svg
+  svg#close-icon
+    position: absolute
+    top: .5em
+    right: 0
     height: 2.5em
-    margin: .5em
-
     cursor: pointer
+
+    &:hover
+      opacity: .75
 
     line
       stroke: #fbfbfb
@@ -73,12 +70,18 @@
   left: 0
 
   overflow: hidden
-  z-index: 1
 
-  background-color: transparent
+  &:before
+    content: " "
+    display: block
+    height: 100%
+    background-color: #111
+
+    opacity: 0
+    transition: opacity .5s
+
   transform: translateY(-100%)
-
-  transition: all .25s 1.25s linear
+  transition: transform .5s 1s linear
 
   iframe
     position: absolute
@@ -142,7 +145,7 @@
       padding: .625em 0
       color: transparent
 
-      animation: login-progress 4s .25s linear forwards
+      animation: login-progress 4s .25s linear
 
     .login_btn:not(.logging)
       height: 0

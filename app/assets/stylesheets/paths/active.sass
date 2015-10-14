@@ -2,6 +2,8 @@
   #paths
     .path
       &:not(.active)
+        z-index: -1
+
         [data-path]
           animation: slow-hide 1s forwards
           pointer-events: none
@@ -11,8 +13,6 @@
         left: 0
 
         [data-path]
-          width: 25%
-
           &:hover
             transform: none
 
@@ -25,5 +25,5 @@
           line
             stroke-width: .125
 
-        [data-path-target]
-          visibility: visible
+        .path-target
+          display: flex

@@ -1,7 +1,7 @@
 div class='path'
   div class='path-content'
     div data-path=path.tag
-      == render "paths/svg/#{path.tag.underscore}"
+      == path.to_svg
       h2 = path.title
 
-    div data-path-target=path.tag
+  div class='path-target' data-path-target=path.tag

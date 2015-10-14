@@ -14,7 +14,6 @@
           pointer-events: none
           transition: none
           animation: none
-          width: 25%
 
           &:hover
             transform: none
@@ -31,26 +30,29 @@
 
       &.active
         left: 0
-        z-index: 1
 
-      [data-path-target]
-        transition: left 1s ease-out
+      .path-target
+        transition: transform 1s ease-out
 
 
 [data-select-path=on]
   #paths
     .path
       &:nth-child(1)
-        left: 0 !important
+        // left: 0 !important
+        left: 4.16667% !important
       &:nth-child(2)
-        left: 25% !important
+        // left: 25% !important
+        left: 37.49997% !important
       &:nth-child(3)
-        left: 50% !important
+        // left: 50% !important
+        left: 70.83337% !important
 
       h2
         opacity: .5
 
       &:not(.active)
+        z-index: 0
         opacity: 1
         transform: none
         animation: soft-display 1s ease-out
@@ -62,11 +64,14 @@
         z-index: 0
 
       &:nth-child(1)
-        [data-path-target]
-          left: 75%
+        .path-target
+          transform: translateX(100%)
       &:nth-child(2)
-        [data-path-target]
-          left: 50%
+        .path-target
+          transform: translateX(75%)
+      &:nth-child(3)
+        .path-target
+          transform: translateX(25%)
 
 [data-select-path=off]
   #paths

@@ -1,5 +1,5 @@
 class SyncController < ApplicationController
-  before_filter :set_account, :check_account
+  before_filter :authenticate_admin_user!, :set_account, :check_account
 
   def index
   end
@@ -19,16 +19,17 @@ class SyncController < ApplicationController
   end
 
 
-  private def set_account
+  protected def set_account
     if params[:code]
       @account = Yt::Account.new authorization_code: params[:code], redirect_uri: 'http://localhost:3000/wxa/sync'
       session[:yt_access_token] = @account.access_token
+      redirect_to action: 'index' and return
     elsif session[:yt_access_token]
       @account = Yt::Account.new access_token: session[:yt_access_token], redirect_uri: 'http://localhost:3000/wxa/sync'
     end
   end
 
-  private def check_account
+  protected def check_account
     @account.playlists
   rescue
     @account = nil

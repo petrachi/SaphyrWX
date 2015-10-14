@@ -21,8 +21,6 @@ setActiveUser = ->
 listenUser = ->
   [].forEach.call document.querySelectorAll('[data-user]'), (user) ->
     user.addEventListener 'click', setActiveUser
-  [].forEach.call document.querySelectorAll('[data-path]'), (path) ->
-    path.addEventListener 'click', loadUser
 
 
 # Login
@@ -31,12 +29,11 @@ setLogin = (btn) ->
   document.querySelector('#user-profile').classList.add 'logging'
 
 listenLogin = ->
-  console.log('ll')
   [].forEach.call document.querySelectorAll('.login_btn'), (btn) ->
     btn.addEventListener 'click', -> setLogin(btn)
 
 # Main
 document.addEventListener 'DOMContentLoaded', ->
-  console.log('user')
-  listenUser() # User
-  listenLogin() # Login
+  setTimeout listenUser, 2000 # User
+  setTimeout loadUser, 2500 # User
+  setTimeout listenLogin, 2000 # Login

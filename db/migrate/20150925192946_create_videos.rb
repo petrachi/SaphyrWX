@@ -11,8 +11,9 @@ class CreateVideos < ActiveRecord::Migration
       t.string :yt_title
 
       # SaphyrWX
-      t.string :brief
+      t.text :transcript
       t.references :path, index: true, foreign_key: true
+      t.boolean :published
 
       t.timestamps null: false
     end

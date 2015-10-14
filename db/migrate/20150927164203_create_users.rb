@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :name
 
+      t.boolean :is_admin
+
       t.timestamps null: false
     end
   end

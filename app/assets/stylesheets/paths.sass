@@ -5,16 +5,18 @@
   left: 0
   height: calc(100% - 3.25em)
 
+  transition: opacity .75s ease-out
+
   .path
     position: absolute
     bottom: 0
 
     &:nth-child(1)
-      left: 0
+      left: 4.16667%
     &:nth-child(2)
-      left: 33.33333%
+      left: 37.49997%
     &:nth-child(3)
-      left: 66.66667%
+      left: 70.83337%
 
     width: 100%
     height: calc(100% - 28.5em)
@@ -25,12 +27,10 @@
     align-items: center
 
     .path-content
-      width: 100%
+      width: 25%
 
     [data-path]
       text-align: center
-
-      width: 33.33333%
       transition: all 1s ease-out
 
       h2
@@ -54,8 +54,7 @@
         circle
           fill: #fbfbfb
           r: 1
-          opacity: 0
-          animation: slow-display 1.5s ease-out forwards
+          animation: opacity-display 1.5s ease-out
           transition: all 1s ease-out
 
         line
@@ -63,8 +62,7 @@
           stroke-width: .25
 
           stroke-dasharray: 29
-          stroke-dashoffset: 29
-          animation: draw-line 1s .5s ease-out forwards
+          animation: draw-line 1s ease-out
 
           opacity: .2
           transition: all 1s .25s ease-out
@@ -81,16 +79,11 @@
             opacity: .8
 
 
-    [data-path-target]
+    .path-target
       display: none
-
-      visibility: hidden
-
-      position: absolute
-      bottom: 0
-      left: 25%
-
-      transition: left 1s ease-out
-
       height: 100%
       width: 75%
+
+      overflow: scroll
+      justify-content: space-between
+      flex-direction: column

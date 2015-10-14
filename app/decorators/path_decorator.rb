@@ -4,6 +4,10 @@ class PathDecorator < SaphyrWXK::Decorator::Base
     super.decorate(view_context: view)
   end
 
+  def to_svg
+    view.render "paths/svg/#{tag.underscore}"
+  end
+
   # def svg_path
   #   send "#{tag.underscore}_svg_path"
   # end

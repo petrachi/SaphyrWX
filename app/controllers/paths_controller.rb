@@ -1,11 +1,11 @@
 class PathsController < ApplicationController
 
   def index
-    @paths = Path.all
+    @paths = Path.published
   end
 
   def show
-    @videos = Path[params[:id]].videos
+    @videos = Path.published.find_by(tag: params[:id]).videos.published
     render layout: false
   end
 end

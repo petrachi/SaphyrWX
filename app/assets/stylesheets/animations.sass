@@ -1,8 +1,18 @@
 // Top Clock
 @keyframes slow-display
+  from
+    opacity: 0
+    transform: translateY(2.25em) scale(.5)
   to
     opacity: 1
-    transform: scale(1)
+    transform: translateY(2.25em) scale(1)
+
+// Paths - SVG Circles
+@keyframes opacity-display
+  from
+    opacity: 0
+  to
+    opacity: 1
 
 // Paths - transition-to-selectable-on
 @keyframes soft-display
@@ -55,3 +65,20 @@
     border-left-width: 14.5em
   100%
     border-left-width: 16.5em
+
+// Videos - On path active
+@keyframes slide-in
+  from
+    opacity: 0
+    transform: translateX(18em) scale(.9) skew(-25deg)
+  to
+    opacity: 1
+    transform: translateX(0) scale(1) skew(0)
+
+@keyframes slide-out
+  from
+    opacity: 1
+    transform: translateX(0) scale(1) skew(0deg)
+  to
+    opacity: 0
+    transform: translateX(18em) scale(.9) skew(25deg)

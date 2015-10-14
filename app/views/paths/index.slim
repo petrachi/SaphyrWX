@@ -1,9 +1,12 @@
+div id='paths'
+  == render @paths
+
+div class='user'
+  div id='user-content' data-user-target=''
+
 div id='top'
   div id='clock'
   div id='title' Choose your path
 
-div id='paths'
-  == render @paths
-
-div id='user'
+div class='user'
   == render 'user'

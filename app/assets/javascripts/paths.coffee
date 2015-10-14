@@ -53,30 +53,7 @@ setActivePath = (path) ->
   document.querySelector('body').setAttribute 'data-active-path', path.getAttribute('data-path')
 
 clearActivePath = ->
-  paths = document.querySelector('.path.active').classList.remove('active')
-
-
-# User
-loadUser = ->
-  $.ajax
-    url: Routes.user_iframe_path()
-    success: (data) ->
-      document.querySelector('[data-user-target]').innerHTML = data
-    error: ->
-      document.querySelector('[data-user-target]').innerHTML = "Error"
-
-setActiveUser = ->
-  body = document.querySelector('body')
-  if body.getAttribute('data-active-user') == 'on'
-    body.setAttribute 'data-active-user', 'off'
-  else
-    body.setAttribute 'data-active-user', 'on'
-
-listenUser = ->
-  document.querySelector('[data-user]').addEventListener 'click', setActiveUser
-  [].forEach.call document.querySelectorAll('[data-path]'), (path) ->
-    path.addEventListener 'click', -> loadUser()
-
+  document.querySelector('.path.active').classList.remove('active')
 
 
 # Main

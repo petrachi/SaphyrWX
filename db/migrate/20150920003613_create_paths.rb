@@ -8,6 +8,7 @@ class CreatePaths < ActiveRecord::Migration
 
       # SaphyrWX
       t.string :tag
+      t.boolean :published
 
       t.timestamps null: false
     end

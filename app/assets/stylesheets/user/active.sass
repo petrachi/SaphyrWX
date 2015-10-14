@@ -1,37 +1,45 @@
 [data-active-path]
   #user-icon
-    height: 3.5em
+    transform: translateY(-100%) translateY(3.25em)
+
+    svg#logo-icon
+      transform: translateY(0)
 
   #user-content
-    background-color: rgba(#111, .25)
+    &:before
+      opacity: .25
+
     transform: translateY(-100%) translateY(3.25em)
+
 
 [data-active-user]
   #user-icon
-    transition: height .75s ease-out
-    align-items: flex-end
+    transition: transform .75s ease-out
 
-    [data-user]
-      transition: opacity .5s
+    svg#logo-icon,
+    svg#close-icon
+      transition: opacity .75s ease-out
 
   #user-content
-    transition: all .75s ease-out
+    transition: transform .75s ease-out
 
 [data-active-user='on']
-  #user-close-icon
-    top: 0
+  #paths
+    opacity: .25
 
   #user-icon
-    height: 100%
+    transform: translateY(0)
 
-    svg
+    svg#logo-icon
       .outline
         opacity: 1
         r: 21
 
       &:hover
-        opacity: .75
+        opacity: .9
 
   #user-content
     transform: translateY(0)
-    background-color: rgba(#111, .75)
+
+    &:before
+      opacity: .75

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150927164203) do
     t.string   "yt_id"
     t.string   "yt_title"
     t.string   "tag"
+    t.boolean  "published"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150927164203) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.boolean  "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,8 +43,9 @@ ActiveRecord::Schema.define(version: 20150927164203) do
     t.string   "yt_published_at"
     t.string   "yt_thumbnail_url"
     t.string   "yt_title"
-    t.string   "brief"
+    t.text     "transcript"
     t.integer  "path_id"
+    t.boolean  "published"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

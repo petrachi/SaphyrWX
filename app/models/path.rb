@@ -17,6 +17,5 @@ class Path < ActiveRecord::Base
 
   decorate_with PathDecorator
 
-  def self.[](tag) find_by tag: tag end
-  def to_param() tag end
+  scope :published, ->{ where published: true }
 end
