@@ -1,12 +1,15 @@
 div id='paths'
   == render @paths
 
+div id='player' data-video-target=''
+
 div class='user'
   div id='user-content' data-user-target=''
 
 div id='top'
   div id='clock'
-  div id='title' Choose your path
+  div id='title' Choisis un chemin
+  div id='back-to-path' #{fa_icon 'reply'} Retour
 
 div class='user'
   == render 'user'

@@ -5,7 +5,7 @@ class PathsController < ApplicationController
   end
 
   def show
-    @videos = Path.published.find_by(tag: params[:id]).videos.published
+    @videos = Path.published.find_by(tag: params[:id]).videos.published.order(:id)
     render layout: false
   end
 end

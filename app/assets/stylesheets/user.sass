@@ -105,7 +105,7 @@
   flex-direction: column
   text-align: center
 
-  .login_btn
+  .login-btn
     position: relative
     display: block
     margin: 1em auto
@@ -127,27 +127,27 @@
 
       font-size: 1.5em
 
-  #google_login
+  #google-login
     background-color: #da573b
 
-  #github_login
+  #github-login
     color: #333
     background-color: #f5f5f5
 
 
   &.logging
-    .login_btn
+    .login-btn
       transition: all .25s ease-out
       border: 0px solid #c9462a
 
-    .login_btn.logging
+    .login-btn.logging
       height: 0
       padding: .625em 0
       color: transparent
 
       animation: login-progress 4s .25s linear
 
-    .login_btn:not(.logging)
+    .login-btn:not(.logging)
       height: 0
       padding: 0
       opacity: 0
@@ -157,3 +157,36 @@
     #github_login
       color: transparent
       border-color: #d4d4d4
+
+  #user-msg
+    width: 34em
+    font-size: 1.25em
+    text-shadow: 0 0 1px #111
+    font-weight: 100
+    text-align: left
+    margin: auto
+    line-height: 1.375em
+
+    &:first-line
+      line-height: 2.375em
+      text-align: center
+
+    #yt-link
+      @include unstyled-link()
+
+    #signout-btn
+      display: inline-block
+      padding: .25em .5em
+      margin-right: .125em
+
+      @include unstyled-link()
+
+      color: #fbfbfb
+      background-color: dodgerblue
+      text-shadow: none
+
+      .fa
+        margin-right: .125em
+
+      &:hover
+        text-decoration: underline

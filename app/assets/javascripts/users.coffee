@@ -4,12 +4,13 @@
 
 # User
 loadUser = ->
-  $.ajax
-    url: Routes.user_iframe_path()
-    success: (data) ->
-      document.querySelector('[data-user-target]').innerHTML = data
-    error: ->
-      document.querySelector('[data-user-target]').innerHTML = "Error"
+  unless document.querySelector('body').getAttribute('data-iframe')
+    $.ajax
+      url: Routes.user_iframe_path()
+      success: (data) ->
+        document.querySelector('[data-user-target]').innerHTML = data
+      error: ->
+        document.querySelector('[data-user-target]').innerHTML = "Error"
 
 setActiveUser = ->
   body = document.querySelector('body')
@@ -29,7 +30,7 @@ setLogin = (btn) ->
   document.querySelector('#user-profile').classList.add 'logging'
 
 listenLogin = ->
-  [].forEach.call document.querySelectorAll('.login_btn'), (btn) ->
+  [].forEach.call document.querySelectorAll('.login-btn'), (btn) ->
     btn.addEventListener 'click', -> setLogin(btn)
 
 # Main

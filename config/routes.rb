@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     get 'wxa/sync_video/:id' => :sync_video, as: :sync_video
   end
 
+  controller :videos do
+    get 'video/:id' => :show, as: :video
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

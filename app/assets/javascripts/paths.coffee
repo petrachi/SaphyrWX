@@ -8,6 +8,7 @@ loadPath = (path) ->
     url: Routes.path_path id: path.getAttribute('data-path')
     success: (data) ->
       document.querySelector("[data-path-target=#{path.getAttribute('data-path')}]").innerHTML = data
+      listenVideos(path) # Video
     error: ->
       path.innerHTML = "Error"
 
@@ -56,7 +57,39 @@ clearActivePath = ->
   document.querySelector('.path.active').classList.remove('active')
 
 
+# Video
+loadVideo = (video) ->
+  $.ajax
+    url: Routes.video_path id: video.getAttribute('data-video')
+    success: (data) ->
+      document.querySelector('[data-video-target]').innerHTML = data
+    error: ->
+      document.querySelector('[data-video-target]').innerHTML = "Error"
+    complete: ->
+      document.querySelector('body').setAttribute 'data-active-player', 'on'
+
+listenVideos = (path) ->
+  [].forEach.call document.querySelectorAll("[data-path-target=#{path.getAttribute('data-path')}] .video"), (video) ->
+    video.addEventListener 'click', -> loadVideo(video)
+
+
+# Player
+listenPlayerBackBtn = ->
+  unless document.querySelector('body').getAttribute('data-iframe')
+    document.querySelector('#back-to-path').addEventListener 'click', backToPath
+
+backToPath = ->
+  document.querySelector('body').setAttribute 'data-active-player', 'off'
+  setTimeout clearPlayer, 1000
+
+clearPlayer = ->
+  player = document.querySelector('#player')
+  while player.hasChildNodes()
+    player.removeChild(player.firstChild)
+
+
 # Main
 document.addEventListener 'DOMContentLoaded', ->
   setTimeout loadPaths, 1500 # Paths
   listenPaths setActivePath # Paths
+  listenPlayerBackBtn() # Player

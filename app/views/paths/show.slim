@@ -3,6 +3,11 @@ div class='videos'
   - if @videos.present?
     == render partial: 'video', collection: @videos
   - else
-    p Rien n'est ici
+    div class='video empty'
+      h3
+        = fa_icon 'warning', class: 'warn-icon'
+        | Oops
+
+      p Il semble qu'il n'y ait rien ici. Arme-toi de patience car tu sais qu'il me faut du temps pour créer les vidéos que tu recherches. En attendant, tu peux toujours essayer les autres chemins.
 
 div class='flex-align-markup'
