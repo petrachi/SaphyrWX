@@ -55,7 +55,7 @@
     cursor: pointer
 
     &:hover
-      opacity: .75
+      opacity: .65
 
     line
       stroke: #fbfbfb
@@ -74,9 +74,13 @@
   &:before
     content: " "
     display: block
-    height: 100%
-    background-color: #111
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
 
+    background-color: #111
     opacity: 0
     transition: opacity .5s
 
@@ -84,15 +88,7 @@
   transition: transform .5s 1s linear
 
   iframe
-    position: absolute
-    top: 3.25em
-    right: 25%
-    bottom: 3.25em
-    left: 25%
-
-    height: calc(100% - 6.5em)
-    width: 50%
-
+    position: relative
     border: none
 
 
@@ -154,7 +150,7 @@
 
       transition: all .25s ease-out
 
-    #github_login
+    #github-login
       color: transparent
       border-color: #d4d4d4
 
