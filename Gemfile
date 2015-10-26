@@ -4,9 +4,11 @@ ruby "2.2.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use Kit for SaphyrWX
-gem 'SaphyrWXK', path: '/Users/thomaspetrachi/Saphyr/SaphyrWXK' # gem 'SaphyrWXK', '0.1.0'
+gem 'SaphyrWXK', '0.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Use 12 factor for easy deploy w/ Heroku
+gem 'rails_12factor', '~> 0.0.3', group: :production
 # Use slim for views
 gem 'slim', '~> 3.0.6'
 # Use SCSS for stylesheets
