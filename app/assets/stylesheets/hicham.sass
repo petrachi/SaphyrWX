@@ -1,0 +1,48 @@
+#hicham
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+  background-image: image-url('hicham.jpg')
+  background-size: cover
+  background-position: center
+
+  display: flex
+  align-content: center
+  flex-wrap: wrap
+
+  & > *
+    width: 100%
+
+  h1
+    text-align: center
+    font-size: 10em
+    font-weight: 100
+    margin-bottom: .25em
+
+  p
+    font-size: 1.5em
+    font-weight: 100
+    padding: 0 25%
+
+    a
+      display: inline-block
+      padding: .25em .5em
+      margin-right: .125em
+
+      @include unstyled-link()
+
+      color: #fbfbfb
+      background-color: dodgerblue
+      text-shadow: none
+
+      .fa
+        margin-right: .125em
+
+      &:hover
+        text-decoration: underline
+
+    &:last-child
+      text-align: center
