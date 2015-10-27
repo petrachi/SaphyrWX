@@ -21,11 +21,11 @@ class SyncController < ApplicationController
 
   protected def set_account
     if params[:code]
-      @account = Yt::Account.new authorization_code: params[:code], redirect_uri: 'http://localhost:3000/wxa/sync'
+      @account = Yt::Account.new authorization_code: params[:code], redirect_uri: "http://#{request.host_with_port}/wxa/sync"
       session[:yt_access_token] = @account.access_token
       redirect_to action: 'index' and return
     elsif session[:yt_access_token]
-      @account = Yt::Account.new access_token: session[:yt_access_token], redirect_uri: 'http://localhost:3000/wxa/sync'
+      @account = Yt::Account.new access_token: session[:yt_access_token], redirect_uri: "http://#{request.host_with_port}/wxa/sync"
     end
   end
 

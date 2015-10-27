@@ -7,6 +7,6 @@ div id='sync'
         == render partial: 'playlist', object: playlist
 
   - else
-    == link_to "YT API Login", Yt::Account.new(scopes: ['youtube'], redirect_uri: 'http://localhost:3000/wxa/sync').authentication_url, id: 'yt_login'
+    == link_to "YT API Login", Yt::Account.new(scopes: ['youtube'], redirect_uri: sync_url).authentication_url, id: 'yt_login'
 
   = link_to "ActiveAdmin Videos", wxa_videos_path, id: 'back'
