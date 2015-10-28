@@ -1,4 +1,4 @@
-div class='path'
+div class="path #{"active" if @redirect["data-active-path"] == path.tag}"
   div class='path-content'
     div data-path=path.tag
       == path.to_svg

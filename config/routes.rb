@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   end
 
   controller :sessions do
+    post "auth/init" => :init, as: :auth_init
     get "auth/:provider/callback" => :create
     get "signout" => :destroy, as: :signout
   end
 
   controller :users do
-    get 'user/iframe' => :iframe, as: :user_iframe
     get 'user' => :show, as: :user
   end
 

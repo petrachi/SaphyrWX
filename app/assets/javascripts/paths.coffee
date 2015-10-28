@@ -58,25 +58,25 @@ clearActivePath = ->
 
 
 # Video
-loadVideo = (video) ->
+loadVideo = (video_id) ->
   $.ajax
-    url: Routes.video_path id: video.getAttribute('data-video')
+    url: Routes.video_path id: video_id
     success: (data) ->
       document.querySelector('[data-video-target]').innerHTML = data
     error: ->
       document.querySelector('[data-video-target]').innerHTML = "Error"
     complete: ->
       document.querySelector('body').setAttribute 'data-active-player', 'on'
+      document.querySelector('body').setAttribute 'data-select-player', video_id
 
 listenVideos = (path) ->
   [].forEach.call document.querySelectorAll("[data-path-target=#{path.getAttribute('data-path')}] .video"), (video) ->
-    video.addEventListener 'click', -> loadVideo(video)
+    video.addEventListener 'click', -> loadVideo(video.getAttribute('data-video'))
 
 
 # Player
 listenPlayerBackBtn = ->
-  unless document.querySelector('body').getAttribute('data-iframe')
-    document.querySelector('#back-to-path').addEventListener 'click', backToPath
+  document.querySelector('#back-to-path').addEventListener 'click', backToPath
 
 backToPath = ->
   document.querySelector('body').setAttribute 'data-active-player', 'off'
@@ -90,6 +90,16 @@ clearPlayer = ->
 
 # Main
 document.addEventListener 'DOMContentLoaded', ->
-  setTimeout loadPaths, 1500 # Paths
+  body = document.querySelector('body')
+  if body.getAttribute('data-document') == 'auth-redirection'
+    loadPaths() # Paths
+    if body.getAttribute('data-select-path') == 'on'
+      listenSelectablePaths() # Paths
+    else
+      listenActivePath() # Paths
+    loadVideo(body.getAttribute('data-select-player')) if body.getAttribute('data-active-player') == 'on' # Video
+  else
+    setTimeout loadPaths, 1500 # Paths
+
   listenPaths setActivePath # Paths
   listenPlayerBackBtn() # Player
