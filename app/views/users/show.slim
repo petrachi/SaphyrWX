@@ -3,7 +3,7 @@ div id='user-profile'
     p id='user-msg'
       | Bonjour #{current_user.name},
       br
-      | Je vais être honnête avec toi et pour l'instant il n'y a rien de spécial pour les utilisateurs connectés. À mesure que le projet grandira, j'ajouterais des fonctionnalités, j'ai plusieurs idées, à commencer par un chouette système de notification pour que tu ne rates rien. Mais pour le moment, je dois me concentrer sur la création des vidéos (que tu peux aussi regarder sur #{link_to fa_icon('youtube'), 'https://www.youtube.com/channel/UCSeroUKYavGiiMu-Zhwbg7w', id: 'yt-link', target: '_blank'}). J'espère que je t'ai pas trop déçu, je comprendrais si tu veux te déconner, je t'ai même fait un bouton exprès pour ça :
+      | Je vais être honnête avec toi, pour l'instant il n'y a rien de spécial pour les utilisateurs connectés. À mesure que le projet grandira, j'ajouterais des fonctionnalités, j'ai plusieurs idées, à commencer par un chouette système de notification pour que tu ne rates rien. Mais pour le moment, je dois me concentrer sur la création des vidéos (que tu peux aussi regarder sur #{link_to fa_icon('youtube'), 'https://www.youtube.com/channel/UCSeroUKYavGiiMu-Zhwbg7w', id: 'yt-link', target: '_blank'}). J'espère que je ne t'ai pas trop déçu, je le comprendrais si tu veux te déconner, je t'ai même fait un bouton exprès pour ça :
       span#signout-btn #{fa_icon 'sign-out'} Déconnexion
 
   - else
